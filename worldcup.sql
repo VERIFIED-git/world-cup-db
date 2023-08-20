@@ -76,19 +76,12 @@ CREATE SEQUENCE public.games_game_id_seq
 ALTER TABLE public.games_game_id_seq OWNER TO freecodecamp;
 
 --
--- Name: games_game_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
---
-
-ALTER SEQUENCE public.games_game_id_seq OWNED BY public.games.game_id;
-
-
---
 -- Name: teams; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.teams (
     team_id integer NOT NULL,
-    name character varying(30)
+    name character varying(30) NOT NULL
 );
 
 
@@ -108,27 +101,6 @@ CREATE SEQUENCE public.teams_team_id_seq
 
 
 ALTER TABLE public.teams_team_id_seq OWNER TO freecodecamp;
-
---
--- Name: teams_team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
---
-
-ALTER SEQUENCE public.teams_team_id_seq OWNED BY public.teams.team_id;
-
-
---
--- Name: games game_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.games ALTER COLUMN game_id SET DEFAULT nextval('public.games_game_id_seq'::regclass);
-
-
---
--- Name: teams team_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.teams_team_id_seq'::regclass);
-
 
 --
 -- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
@@ -202,14 +174,14 @@ INSERT INTO public.teams VALUES (24, 'United States');
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 32, true);
+SELECT pg_catalog.setval('public.games_game_id_seq', 1, false);
 
 
 --
 -- Name: teams_team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.teams_team_id_seq', 24, true);
+SELECT pg_catalog.setval('public.teams_team_id_seq', 1, false);
 
 
 --
@@ -255,5 +227,4 @@ ALTER TABLE ONLY public.games
 --
 -- PostgreSQL database dump complete
 --
-
 
